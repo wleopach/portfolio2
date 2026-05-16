@@ -102,8 +102,17 @@ const ChatWidget = () => {
       {/* Chat Window */}
       {isOpen && (
         <div className="absolute bottom-20 right-0 w-80 sm:w-96 h-[500px] bg-background border border-foreground/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5">
-          <div className="p-4 bg-primary text-white font-bold">
-            Chat with AI
+          <div className="p-4 bg-primary text-white font-bold flex justify-between items-center">
+            <span>Chat with AI</span>
+            <button 
+              onClick={() => setIsOpen(false)}
+              className="hover:bg-white/20 rounded-full p-1 transition-colors"
+              aria-label="Close chat"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
           
           <div className="flex-grow overflow-y-auto p-4 space-y-4">
