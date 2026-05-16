@@ -52,86 +52,86 @@ export const basePath = isProd ? '/portfolio2' : '';
 export const services: Service[] = [
   {
     title: 'Data Science',
-    icon: '/assets/icons/frontend.png',
+    icon: `${basePath}/assets/icons/frontend.png`,
   },
   {
     title: 'ML',
-    icon: '/assets/icons/backend.png',
+    icon: `${basePath}/assets/icons/backend.png`,
   },
   {
     title: 'Web development',
-    icon: '/assets/icons/ux.png',
+    icon: `${basePath}/assets/icons/ux.png`,
   },
   {
     title: 'Operations research',
-    icon: '/assets/icons/prototyping.png',
+    icon: `${basePath}/assets/icons/prototyping.png`,
   },
 ];
 
 export const technologies: Technology[] = [
   {
     name: 'python',
-    icon: '/assets/tech/python.png',
+    icon: `${basePath}/assets/tech/python.png`,
   },
   {
     name: 'tensorflow',
-    icon: '/assets/tech/tensorflow.png',
+    icon: `${basePath}/assets/tech/tensorflow.png`,
   },
   {
     name: 'pytorch',
-    icon: '/assets/tech/pytorch.png',
+    icon: `${basePath}/assets/tech/pytorch.png`,
   },
   {
     name: 'r',
-    icon: '/assets/tech/r.png',
+    icon: `${basePath}/assets/tech/r.png`,
   },
   {
     name: 'aws',
-    icon: '/assets/tech/aws.png',
+    icon: `${basePath}/assets/tech/aws.png`,
   },
   {
     name: 'HTML 5',
-    icon: '/assets/tech/html.png',
+    icon: `${basePath}/assets/tech/html.png`,
   },
   {
     name: 'CSS 3',
-    icon: '/assets/tech/css.png',
+    icon: `${basePath}/assets/tech/css.png`,
   },
   {
     name: 'JavaScript',
-    icon: '/assets/tech/javascript.png',
+    icon: `${basePath}/assets/tech/javascript.png`,
   },
   {
     name: 'React JS',
-    icon: '/assets/tech/reactjs.png',
+    icon: `${basePath}/assets/tech/reactjs.png`,
   },
   {
     name: 'Node JS',
-    icon: '/assets/tech/nodejs.png',
+    icon: `${basePath}/assets/tech/nodejs.png`,
   },
   {
     name: 'postgresql',
-    icon: '/assets/tech/postgresql.png',
+    icon: `${basePath}/assets/tech/postgresql.png`,
   },
   {
     name: 'git',
-    icon: '/assets/tech/git.png',
+    icon: `${basePath}/assets/tech/git.png`,
   },
   {
     name: 'docker',
-    icon: '/assets/tech/docker.png',
+    icon: `${basePath}/assets/tech/docker.png`,
   },
   {
     name: 'latex',
-    icon: '/assets/tech/latex.png',
+    icon: `${basePath}/assets/tech/latex.png`,
   },
   {
     name: 'gurobi',
-    icon: '/assets/tech/gurobi.png',
+    icon: `${basePath}/assets/tech/gurobi.png`,
   },
   {
     name: 'voximpant',
-    icon: '/assets/tech/voximplant.png',
+    icon: `${basePath}/assets/tech/voximplant.png`,
   },
 ];
 
@@ -139,35 +139,35 @@ export const experience: Experience[] = [
   {
     title: 'Senior Consultant OR',
     company_name: 'Melius ID',
-    icon: '/assets/company/coverhunt.png', // Placeholder icon
+    icon: `${basePath}/assets/company/coverhunt.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'Aug 2016 - Feb 2019',
   },
   {
     title: 'AI Consultant',
     company_name: 'Laguna AI',
-    icon: '/assets/company/microverse.png', // Placeholder icon
+    icon: `${basePath}/assets/company/microverse.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'May 2021 - Oct 2022',
   },
   {
     title: 'AI Consultant',
     company_name: 'Updata',
-    icon: '/assets/company/kelhel.png', // Placeholder icon
+    icon: `${basePath}/assets/company/kelhel.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'Mar 2022 - Dec 2022',
   },
   {
     title: 'Data Scientist',
     company_name: 'Tulipan',
-    icon: '/assets/company/dcc.png', // Placeholder icon
+    icon: `${basePath}/assets/company/dcc.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'April 2023 - Present',
   },
   {
     title: 'Data Scientist and Scheduling optimization Engineer',
     company_name: 'Applaudo',
-    icon: '/assets/company/kelhel.png', // Placeholder icon
+    icon: `${basePath}/assets/company/kelhel.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'Jan 2024 - Present',
   },
@@ -192,7 +192,7 @@ export const projects: Project[] = [
         color: 'pink-text-gradient',
       },
     ],
-    image: '/assets/projects/pagos.png',
+    image: `${basePath}/assets/projects/pagos.png`,
     repo: 'https://github.com/wleopach/pagos/',
     demo: 'https://pagos.onrender.com/',
   },
@@ -214,7 +214,7 @@ export const projects: Project[] = [
         color: 'pink-text-gradient',
       },
     ],
-    image: '/assets/projects/staff.png',
+    image: `${basePath}/assets/projects/staff.png`,
     repo: 'https://github.com/shaqdeff/Leaderboard',
     demo: 'https://www.gurobi.tulipan.ai/dashboard',
   },
@@ -236,7 +236,7 @@ export const projects: Project[] = [
         color: 'pink-text-gradient',
       },
     ],
-    image: '/assets/projects/math-magicians.png',
+    image: `${basePath}/assets/projects/math-magicians.png`,
     repo: 'https://github.com/shaqdeff/Math-Magicians',
     demo: 'https://inspiring-medovik-37d3b3.netlify.app/',
   },
@@ -258,7 +258,7 @@ export const projects: Project[] = [
         color: 'pink-text-gradient',
       },
     ],
-    image: '/assets/projects/movie-metro.png',
+    image: `${basePath}/assets/projects/movie-metro.png`,
     repo: 'https://github.com/shaqdeff/Movie-Metro',
     demo: 'https://movie-metro.netlify.app/',
   },
@@ -280,7 +280,7 @@ export const projects: Project[] = [
         color: 'pink-text-gradient',
       },
     ],
-    image: '/assets/projects/nyeusi.png',
+    image: `${basePath}/assets/projects/nyeusi.png`,
     repo: 'https://github.com/shaqdeff/Nyeusi-Fest-Site',
     demo: 'https://shaqdeff.github.io/Nyeusi-Fest-Site/',
   },

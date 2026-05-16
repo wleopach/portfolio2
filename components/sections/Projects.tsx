@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { projects } from "@/lib/data";
+import { projects, basePath } from "@/lib/data";
 import Image from 'next/image';
 
 const ProjectCard = ({
@@ -55,7 +55,7 @@ const ProjectCard = ({
                 flex justify-center items-center cursor-pointer
                 sm:opacity-[0.9] opacity-[0.8]">
               <Image
-                src="/assets/icons/github.png"
+                src={`${basePath}/assets/icons/github.png`}
                 alt="source code"
                 width={24}
                 height={24}
@@ -86,7 +86,7 @@ const ProjectCard = ({
             ease-in-out"
             onClick={(e) => { e.stopPropagation(); window.open(demo, '_blank'); }}>
             <Image
-              src="/assets/icons/pineapple.png"
+              src={`${basePath}/assets/icons/pineapple.png`}
               alt="pineapple"
               width={34}
               height={34}

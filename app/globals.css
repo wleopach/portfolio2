@@ -2,23 +2,23 @@
 
 @font-face {
   font-family: 'Arenq';
-  src: url('/fonts/arenq.otf') format('opentype');
+  src: url('../public/fonts/arenq.otf') format('opentype');
 }
 @font-face {
   font-family: 'Beckman';
-  src: url('/fonts/beckman.otf') format('opentype');
+  src: url('../public/fonts/beckman.otf') format('opentype');
 }
 @font-face {
   font-family: 'Mova';
-  src: url('/fonts/mova.otf') format('opentype');
+  src: url('../public/fonts/mova.otf') format('opentype');
 }
 @font-face {
   font-family: 'Overcame Bold';
-  src: url('/fonts/overcame-bold.woff') format('woff');
+  src: url('../public/fonts/overcame-bold.woff') format('woff');
 }
 @font-face {
   font-family: 'Overcame Outline';
-  src: url('/fonts/overcame-outline.woff') format('woff');
+  src: url('../public/fonts/overcame-outline.woff') format('woff');
 }
 
 :root {
