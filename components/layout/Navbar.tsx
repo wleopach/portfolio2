@@ -100,13 +100,13 @@ const Navbar = () => {
               />
             </button>
           </div>
-          <ul className="list-none flex flex-col items-start justify-center flex-1 -ml-[35px]">
+          <ul className="list-none flex flex-col items-start justify-center flex-1">
             {navLinks.map((nav) => (
               <li
                 key={nav.id}
                 className={`${
                   active === nav.title ? "text-taupe" : "text-flashWhite"
-                } text-[60px] font-bold font-arenq uppercase tracking-[1px] cursor-pointer`}
+                } text-[45px] font-bold font-arenq uppercase tracking-[1px] cursor-pointer`}
                 onClick={() => {
                   setIsOpen(false);
                   setActive(nav.title);

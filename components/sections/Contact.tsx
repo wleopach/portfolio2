@@ -3,6 +3,8 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { basePath } from '@/lib/data';
+import { slideIn, staggerContainer } from '@/lib/motion';
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -30,10 +32,18 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
-      <div className="flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
+    <motion.section
+      variants={staggerContainer()}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+      id="contact"
+      className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
+    >
+      <div className="flex xl:flex-row flex-col-reverse gap-10 overflow-hidden justify-center">
         <motion.div
-          className="flex-[0.75] bg-jetLight p-8 rounded-2xl"
+          variants={slideIn('left', 'tween', 0.2, 1)}
+          className="flex-1 bg-jetLight p-8 rounded-2xl max-w-6xl w-full"
         >
           <p className="sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold">Get in touch</p>
           <h3 className="text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px]">Contact.</h3>
@@ -83,7 +93,7 @@ const Contact = () => {
             >
               {loading ? 'Sending...' : 'Send'}
               <Image
-                src="/assets/icons/send.png"
+                src={`${basePath}/assets/icons/send.png`}
                 alt="send"
                 width={26}
                 height={26}
@@ -93,7 +103,7 @@ const Contact = () => {
           </form>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
