@@ -1,13 +1,13 @@
 import type { NextConfig } from 'next'
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/portfolio2',          // must match your GitHub repo name exactly
-  assetPrefix: '/portfolio2/',
+  basePath: isProd ? '/portfolio2' : '',
   images: {
-    unoptimized: true,             // required for static export
+    unoptimized: true,
   },
-  trailingSlash: true,             // GitHub Pages needs this for clean URLs
-}
+};
 
 export default nextConfig

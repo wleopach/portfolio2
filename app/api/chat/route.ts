@@ -4,15 +4,19 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
+    const body = await req.json();
+    const messages = body?.messages || [];
 
-    // Trim history to last 10 messages
+    // Keep only last 10 messages
     const trimmedMessages = messages.slice(-10);
 
     const response = await openai.chat.completions.create({
       model: "gpt-4o",
       messages: [
-        { role: "system", content: getSystemPrompt() },
+        {
+          role: "system",
+          content: getSystemPrompt(),
+        },
         ...trimmedMessages,
       ],
       max_tokens: 300,
@@ -20,13 +24,16 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({
-      message: response.choices[0].message.content,
+      message: response.choices[0]?.message?.content || "",
     });
   } catch (error) {
     console.error("Chat API Error:", error);
+
     return NextResponse.json(
-      { error: "Failed to fetch response from AI" },
-      { status: 500 }
+        {
+          error: "Failed to fetch response from AI",
+        },
+        { status: 500 }
     );
   }
 }

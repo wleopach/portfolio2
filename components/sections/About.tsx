@@ -1,22 +1,41 @@
-import { owner } from "@/lib/data";
+import { owner, services } from "@/lib/data";
+import Image from "next/image";
+
+const ServiceCard = ({ title, icon }: { title: string; icon: string }) => {
+  return (
+    <div className="xs:w-[250px] w-full card-gradient p-[1px] rounded-[20px] shadow-2xl">
+      <div className="bg-jetLight rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
+        <Image
+          src={icon}
+          alt={title}
+          width={64}
+          height={64}
+          className="object-contain"
+        />
+        <h3 className="text-taupe text-[18px] font-bold text-center">
+          {title}
+        </h3>
+      </div>
+    </div>
+  );
+};
 
 const About = () => {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold mb-8">About Me</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-            {owner.bio}
-          </p>
-          <p className="text-lg text-foreground/80 leading-relaxed">
-            Based in <span className="font-semibold">{owner.location}</span>, I specialize in creating responsive, user-friendly interfaces and robust backend systems.
-          </p>
-        </div>
-        <div className="relative aspect-square max-w-md mx-auto rounded-2xl overflow-hidden bg-foreground/5 flex items-center justify-center">
-          <span className="text-foreground/20 text-xl font-bold">Profile Photo Placeholder</span>
-          {/* Use next/image here later */}
-        </div>
+      <div>
+        <p className="sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold">Introduction</p>
+        <h2 className="text-eerieBlack dark:text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px]">Overview.</h2>
+      </div>
+
+      <p className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
+        {owner.bio}
+      </p>
+
+      <div className="mt-20 flex flex-wrap gap-10">
+        {services.map((service) => (
+          <ServiceCard key={service.title} {...service} />
+        ))}
       </div>
     </section>
   );

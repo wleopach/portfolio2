@@ -1,77 +1,127 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { owner } from "@/lib/data";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Technologies", href: "#technologies" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    { id: "about", title: "About" },
+    { id: "projects", title: "Projects" },
+    { id: "contact", title: "Contact" },
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-foreground/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex-shrink-0 font-bold text-xl">
-            <Link href="/">{owner.name}</Link>
-          </div>
-          
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="px-3 py-2 rounded-md text-sm font-medium hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          </div>
+    <nav className={`sm:px-16 px-6 w-full flex items-center py-2 fixed top-0 z-20 ${
+      scrolled ? "bg-eerieBlack sm:opacity-[0.97]" : "bg-transparent"
+    } xxs:h-[12vh] transition-all duration-300`}>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+        <Link
+          href="/"
+          className="flex items-center gap-2"
+          onClick={() => {
+            setActive("");
+            window.scrollTo(0, 0);
+          }}>
+          <Image
+            src="/assets/logo/logo-black.png"
+            alt="logo"
+            width={50}
+            height={50}
+            className={`sm:w-[50px] sm:h-[50px] w-[45px] h-[45px] object-contain ${
+              scrolled ? "brightness-0 invert" : ""
+            }`}
+          />
+          <Image
+            src="/assets/logo/logo-text-black.png"
+            alt="logo text"
+            width={90}
+            height={90}
+            className={`sm:w-[90px] sm:h-[90px] w-[85px] h-[85px] -ml-[0.6rem] object-contain ${
+              scrolled ? "brightness-0 invert" : ""
+            }`}
+          />
+        </Link>
 
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md hover:text-primary focus:outline-none"
-            >
-              <span className="sr-only">Open main menu</span>
-              {isOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              )}
-            </button>
-          </div>
+        <ul className="list-none hidden sm:flex flex-row gap-14 mt-2">
+          {navLinks.map((nav) => (
+            <li
+              key={nav.id}
+              className={`${
+                active === nav.title ? "text-taupe" : scrolled ? "text-flashWhite" : "text-black font-bold"
+              } hover:text-taupe text-[21px] font-medium font-mova uppercase tracking-[3px] cursor-pointer transition-colors`}
+              onClick={() => setActive(nav.title)}>
+              <a href={`#${nav.id}`}>{nav.title}</a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="sm:hidden flex flex-1 justify-end items-center">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex items-center justify-center"
+          >
+            <Image
+              src={isOpen ? "/assets/icons/close.png" : "/assets/icons/menu.png"}
+              alt="menu"
+              width={34}
+              height={34}
+              className={`w-[34px] h-[34px] object-contain cursor-pointer ${
+                scrolled || isOpen ? "brightness-0 invert" : "brightness-0"
+              }`}
+            />
+          </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-background border-b border-foreground/10">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="block px-3 py-2 rounded-md text-base font-medium hover:text-primary"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
+        <div className="p-6 bg-eerieBlack absolute top-0 left-0 w-screen h-[100vh] z-10 flex flex-col">
+          <div className="flex justify-end">
+            <button onClick={() => setIsOpen(false)}>
+              <Image
+                src="/assets/icons/close.png"
+                alt="close"
+                width={22}
+                height={22}
+                className="w-[22px] h-[22px] object-contain brightness-0 invert"
+              />
+            </button>
           </div>
+          <ul className="list-none flex flex-col items-start justify-center flex-1 -ml-[35px]">
+            {navLinks.map((nav) => (
+              <li
+                key={nav.id}
+                className={`${
+                  active === nav.title ? "text-taupe" : "text-flashWhite"
+                } text-[60px] font-bold font-arenq uppercase tracking-[1px] cursor-pointer`}
+                onClick={() => {
+                  setIsOpen(false);
+                  setActive(nav.title);
+                }}>
+                <a href={`#${nav.id}`}>{nav.title}</a>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </nav>
