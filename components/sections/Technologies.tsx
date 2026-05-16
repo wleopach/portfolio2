@@ -1,12 +1,12 @@
 "use client";
 
-import { technologies, isProd } from "@/lib/data";
+import { technologies, basePath } from "@/lib/data";
 import BallCanvas from "../canvas/Ball";
 import { motion } from "framer-motion";
 import { textVariant, staggerContainer } from "@/lib/motion";
 
 const Technologies = () => {
-  const bgPath = isProd ? "/portfolio2/assets/backgrounds/nairobi.png" : "/assets/backgrounds/nairobi.png";
+  const bgPath = `${basePath}/assets/backgrounds/nairobi.png`;
   
   return (
     <section 
