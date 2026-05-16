@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { basePath } from "@/lib/data";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +44,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}>
           <Image
-            src="/assets/logo/logo-black.png"
+            src={`${basePath}/assets/logo/logo-black.png`}
             alt="logo"
             width={50}
             height={50}
@@ -52,7 +53,7 @@ const Navbar = () => {
             }`}
           />
           <Image
-            src="/assets/logo/logo-text-black.png"
+            src={`${basePath}/assets/logo/logo-text-black.png`}
             alt="logo text"
             width={90}
             height={90}
@@ -81,7 +82,7 @@ const Navbar = () => {
             className="flex items-center justify-center"
           >
             <Image
-              src={isOpen ? "/assets/icons/close.png" : "/assets/icons/menu.png"}
+              src={isOpen ? `${basePath}/assets/icons/close.png` : `${basePath}/assets/icons/menu.png`}
               alt="menu"
               width={34}
               height={34}
@@ -99,7 +100,7 @@ const Navbar = () => {
           <div className="flex justify-end">
             <button onClick={() => setIsOpen(false)}>
               <Image
-                src="/assets/icons/close.png"
+                src={`${basePath}/assets/icons/close.png`}
                 alt="close"
                 width={22}
                 height={22}

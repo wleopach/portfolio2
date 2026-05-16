@@ -3,13 +3,14 @@
 import { motion } from 'framer-motion';
 import { owner } from "@/lib/data";
 import Image from 'next/image';
+import { basePath } from '@/lib/data';
 
 const Hero = () => {
   return (
     <>
       <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
         <Image
-          src="/assets/backgrounds/bw-map.jpeg"
+          src={`${basePath}/assets/backgrounds/bw-map.jpeg`}
           alt="world map"
           fill
           className="w-full h-full sm:block hidden object-cover"
@@ -17,7 +18,7 @@ const Hero = () => {
       </div>
       <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
         <Image
-          src="/assets/backgrounds/world-map.png"
+          src={`${basePath}/assets/backgrounds/world-map.png`}
           alt="world map"
           fill
           className="w-full h-full sm:hidden block object-cover"
@@ -72,7 +73,7 @@ const Hero = () => {
         <div>
           <Image
             className="absolute bottom-0 right-0 h-[90vh] w-auto object-contain"
-            src="/assets/personal/yo2.png"
+            src={`${basePath}/assets/personal/yo2.png`}
             alt="Leonardo"
             width={1000}
             height={1000}
