@@ -162,14 +162,14 @@ export const experience: Experience[] = [
     company_name: 'Tulipan',
     icon: `${basePath}/assets/company/dcc.png`, // Placeholder icon
     iconBg: '#333333',
-    date: 'April 2023 - Present',
+    date: 'April 2023 - Jan 2026',
   },
   {
     title: 'Data Scientist and Scheduling optimization Engineer',
     company_name: 'Applaudo',
     icon: `${basePath}/assets/company/kelhel.png`, // Placeholder icon
     iconBg: '#333333',
-    date: 'Jan 2024 - Present',
+    date: 'Jan 2026 - Present',
   },
 ];
 
