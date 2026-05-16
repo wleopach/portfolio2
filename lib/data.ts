@@ -46,6 +46,9 @@ export const owner: OwnerInfo = {
   linkedin: "https://linkedin.com/in/wleopach",
 };
 
+export const isProd = process.env.NODE_ENV === 'production';
+export const basePath = isProd ? '/portfolio2' : '';
+
 export const services: Service[] = [
   {
     title: 'Data Science',

@@ -1,14 +1,16 @@
 "use client";
 
-import { technologies } from "@/lib/data";
+import { technologies, isProd } from "@/lib/data";
 import BallCanvas from "../canvas/Ball";
 
 const Technologies = () => {
+  const bgPath = isProd ? "/portfolio2/assets/backgrounds/nairobi.png" : "/assets/backgrounds/nairobi.png";
+  
   return (
     <section 
       id="tech" 
       className="py-20 px-4 sm:px-6 lg:px-8 max-w-none bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/assets/backgrounds/nairobi.png')" }}
+      style={{ backgroundImage: `url('${bgPath}')` }}
     >
       <div className="max-w-7xl mx-auto">
         <div>

@@ -2,6 +2,7 @@
 
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
+import { basePath } from '@/lib/data';
 import {
   Decal,
   Float,
@@ -11,7 +12,8 @@ import {
 } from '@react-three/drei';
 
 const Ball = ({ imgUrl }: { imgUrl: string }) => {
-  const [decal] = useTexture([imgUrl]);
+  const fullImgUrl = imgUrl.startsWith('/') ? `${basePath}${imgUrl}` : imgUrl;
+  const [decal] = useTexture([fullImgUrl]);
 
   return (
     <Float speed={2.5} rotationIntensity={1} floatIntensity={2}>
