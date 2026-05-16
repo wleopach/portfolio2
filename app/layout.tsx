@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ChatWidget from "@/components/chatbot/ChatWidget";
-import { owner } from "@/lib/data";
+import { owner, basePath } from "@/lib/data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +19,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${owner.name} | ${owner.title}`,
   description: owner.bio,
+  icons: {
+    icon: `${basePath}/assets/logo/logo-black.png`,
+    apple: `${basePath}/assets/logo/logo-black.png`,
+  },
 };
 
 export default function RootLayout({

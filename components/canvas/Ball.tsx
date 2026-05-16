@@ -12,7 +12,7 @@ import {
 } from '@react-three/drei';
 
 const Ball = ({ imgUrl }: { imgUrl: string }) => {
-  const fullImgUrl = imgUrl.startsWith('/') ? `${basePath}${imgUrl}` : imgUrl;
+  const fullImgUrl = imgUrl.startsWith(basePath) && basePath !== '' ? imgUrl : (imgUrl.startsWith('/') ? `${basePath}${imgUrl}` : imgUrl);
   const [decal] = useTexture([fullImgUrl]);
 
   return (
