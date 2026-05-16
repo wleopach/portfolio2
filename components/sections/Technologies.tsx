@@ -2,6 +2,8 @@
 
 import { technologies, isProd } from "@/lib/data";
 import BallCanvas from "../canvas/Ball";
+import { motion } from "framer-motion";
+import { textVariant, staggerContainer } from "@/lib/motion";
 
 const Technologies = () => {
   const bgPath = isProd ? "/portfolio2/assets/backgrounds/nairobi.png" : "/assets/backgrounds/nairobi.png";
@@ -12,11 +14,17 @@ const Technologies = () => {
       className="py-20 px-4 sm:px-6 lg:px-8 max-w-none bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url('${bgPath}')` }}
     >
-      <div className="max-w-7xl mx-auto">
-        <div>
+      <motion.div
+        variants={staggerContainer()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+        className="max-w-7xl mx-auto"
+      >
+        <motion.div variants={textVariant()}>
           <p className="sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold">My Tools</p>
-          <h2 className="text-eerieBlack dark:text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px]">Technologies.</h2>
-        </div>
+          <h2 className="text-eerieBlack dark:text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-poppins">Technologies.</h2>
+        </motion.div>
 
         <div className="flex flex-wrap justify-center gap-10 mt-14">
           {technologies.map((tech) => (
@@ -25,7 +33,7 @@ const Technologies = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

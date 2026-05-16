@@ -1,5 +1,14 @@
 import OpenAI from "openai";
-//how to set the key secure in github
-export const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+
+export const getOpenAIInstance = () => {
+  const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+  
+  if (!apiKey) {
+    return null;
+  }
+
+  return new OpenAI({
+    apiKey: apiKey,
+    dangerouslyAllowBrowser: true,
+  });
+};

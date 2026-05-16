@@ -32,9 +32,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`sm:px-16 px-6 w-full flex items-center py-2 fixed top-0 z-20 ${
-      scrolled ? "bg-eerieBlack sm:opacity-[0.97]" : "bg-transparent"
-    } xxs:h-[12vh] transition-all duration-300`}>
+    <nav className={`sm:px-16 px-6 w-full flex items-center py-2 fixed top-0 z-20 bg-eerieBlack sm:opacity-[0.97] xxs:h-[12vh] transition-all duration-300`}>
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
           href="/"
@@ -48,18 +46,14 @@ const Navbar = () => {
             alt="logo"
             width={50}
             height={50}
-            className={`sm:w-[50px] sm:h-[50px] w-[45px] h-[45px] object-contain ${
-              scrolled ? "brightness-0 invert" : ""
-            }`}
+            className="sm:w-[50px] sm:h-[50px] w-[45px] h-[45px] object-contain brightness-0 invert mix-blend-screen"
           />
           <Image
             src={`${basePath}/assets/logo/logo-text-black.png`}
             alt="logo text"
             width={90}
             height={90}
-            className={`sm:w-[90px] sm:h-[90px] w-[85px] h-[85px] -ml-[0.6rem] object-contain ${
-              scrolled ? "brightness-0 invert" : ""
-            }`}
+            className="sm:w-[90px] sm:h-[90px] w-[85px] h-[85px] -ml-[0.6rem] object-contain brightness-0 invert mix-blend-screen"
           />
         </Link>
 
@@ -68,7 +62,7 @@ const Navbar = () => {
             <li
               key={nav.id}
               className={`${
-                active === nav.title ? "text-taupe" : scrolled ? "text-flashWhite" : "text-black font-bold"
+                active === nav.title ? "text-taupe" : "text-flashWhite"
               } hover:text-taupe text-[21px] font-medium font-mova uppercase tracking-[3px] cursor-pointer transition-colors`}
               onClick={() => setActive(nav.title)}>
               <a href={`#${nav.id}`}>{nav.title}</a>
@@ -86,9 +80,7 @@ const Navbar = () => {
               alt="menu"
               width={34}
               height={34}
-              className={`w-[34px] h-[34px] object-contain cursor-pointer ${
-                scrolled || isOpen ? "brightness-0 invert" : "brightness-0"
-              }`}
+              className="w-[34px] h-[34px] object-contain cursor-pointer brightness-0 invert"
             />
           </button>
         </div>

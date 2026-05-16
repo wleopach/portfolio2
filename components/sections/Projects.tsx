@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { projects, basePath } from "@/lib/data";
 import Image from 'next/image';
 
+import { fadeIn, textVariant, staggerContainer } from '@/lib/motion';
+
 const ProjectCard = ({
   id,
   name,
@@ -18,6 +20,7 @@ const ProjectCard = ({
 }: any) => {
   return (
     <motion.div
+      variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
       className={`relative ${
         active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'
       } flex items-center justify-center min-w-[170px] 
@@ -45,7 +48,10 @@ const ProjectCard = ({
           </h3>
         </div>
       ) : (
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: 'easeIn' }}
           className="absolute bottom-0 p-8 justify-start w-full 
           flex-col bg-[rgba(0,0,0,0.5)] rounded-b-[24px] z-20">
           <div className="absolute inset-0 flex justify-end m-3">
@@ -95,7 +101,7 @@ const ProjectCard = ({
             />
             LIVE DEMO
           </button>
-        </div>
+        </motion.div>
       )}
     </motion.div>
   );
@@ -106,32 +112,41 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div>
-        <p className="sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold">Case Studies</p>
-        <h2 className="text-eerieBlack dark:text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px]">Projects.</h2>
-      </div>
+      <motion.div
+        variants={staggerContainer()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+      >
+        <motion.div variants={textVariant()}>
+          <p className="sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold">Case Studies</p>
+          <h2 className="text-eerieBlack dark:text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-poppins">Projects.</h2>
+        </motion.div>
 
-      <div className="w-full flex">
-        <p className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-          These projects demonstrate my expertise with practical examples of
-          some of my work, including brief descriptions and links to code
-          repositories and live demos. They showcase my ability to tackle
-          intricate challenges, adapt to various technologies, and efficiently
-          oversee projects.
-        </p>
-      </div>
+        <div className="w-full flex">
+          <motion.p
+            variants={fadeIn('', '', 0.1, 1)}
+            className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px] font-poppins">
+            These projects demonstrate my expertise with practical examples of
+            some of my work, including brief descriptions and links to code
+            repositories and live demos. They showcase my ability to tackle
+            intricate challenges, adapt to various technologies, and efficiently
+            oversee projects.
+          </motion.p>
+        </div>
 
-      <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={project.id}
-            index={index}
-            {...project}
-            active={active}
-            handleClick={setActive}
-          />
-        ))}
-      </div>
+        <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              index={index}
+              {...project}
+              active={active}
+              handleClick={setActive}
+            />
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 };

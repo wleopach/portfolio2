@@ -45,6 +45,23 @@
   --font-mova: 'Mova';
   --font-overcame-bold: 'Overcame Bold';
   --font-overcame-outline: 'Overcame Outline';
+  
+  --padding: 2.5rem 1rem;
+
+  --background-hero: linear-gradient(135deg, rgba(244,244,246,0.8) 60%, rgba(10,10,10,0.95) 60%);
+  --background-hero-mobile: linear-gradient(137deg, rgba(244,244,246,0.8) 60%, rgba(10,10,10,1) 60%);
+}
+
+@media (min-width: 640px) {
+  @theme inline {
+    --padding: 4rem 4rem;
+  }
+}
+
+@theme inline {
+  --font-poppins: 'Poppins', sans-serif;
+  --background-image-hero: var(--background-hero);
+  --background-image-hero-mobile: var(--background-hero-mobile);
 }
 
 @media (prefers-color-scheme: dark) {

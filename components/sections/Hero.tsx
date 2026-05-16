@@ -7,26 +7,28 @@ import { basePath } from '@/lib/data';
 
 const Hero = () => {
   return (
-    <>
-      <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
+    <section className="relative w-full h-screen mx-auto overflow-hidden">
+      <div className="absolute inset-0 z-0">
         <Image
           src={`${basePath}/assets/backgrounds/bw-map.jpeg`}
           alt="world map"
           fill
+          priority
           className="w-full h-full sm:block hidden object-cover"
         />
       </div>
-      <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
+      <div className="absolute inset-0 z-0">
         <Image
           src={`${basePath}/assets/backgrounds/world-map.png`}
           alt="world map"
           fill
+          priority
           className="w-full h-full sm:hidden block object-cover"
         />
       </div>
-      <section
-        className="relative flex sm:flex-row flex-col w-full h-screen mx-auto 
-        overflow-hidden">
+      <div
+        className="relative flex sm:flex-row flex-col w-full h-full mx-auto 
+        sm:bg-hero bg-hero-mobile">
         <div
           className="absolute inset-0 sm:top-[250px] top-[150px] 
           lg:top-[150px] xl:top-[250px] sm:px-16 px-6 
@@ -45,7 +47,7 @@ const Hero = () => {
                 {owner.name}
               </span>
             </h1>
-            <p className="text-eerieBlack font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2">
+            <p className="text-eerieBlack font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2 font-poppins">
               Data scientist, <br className="sm:block hidden" />
               Driven by a Passion for Machine Learning, AI, and Mathematics
             </p>
@@ -70,9 +72,9 @@ const Hero = () => {
           </a>
         </div>
 
-        <div>
+        <div className="flex flex-1 justify-center sm:justify-end items-end h-full relative z-0">
           <Image
-            className="absolute bottom-0 right-0 h-[90vh] w-auto object-contain"
+            className="sm:w-auto w-[80%] max-h-[50vh] sm:max-h-[90vh] object-contain"
             src={`${basePath}/assets/personal/yo2.png`}
             alt="Leonardo"
             width={1000}
@@ -80,8 +82,8 @@ const Hero = () => {
             priority
           />
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

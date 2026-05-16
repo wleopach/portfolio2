@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import { owner } from "@/lib/data";
+import { getOpenAIInstance } from "@/lib/openai";
+import { getSystemPrompt } from "@/lib/portfolio-context";
 
 interface Message {
   role: "user" | "assistant";
@@ -41,22 +43,38 @@ const ChatWidget = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [...messages, userMessage] }),
+      const openai = getOpenAIInstance();
+      if (!openai) {
+        throw new Error("OpenAI API key is missing. Please check your configuration.");
+      }
+
+      const response = await openai.chat.completions.create({
+        model: "gpt-4o",
+        messages: [
+          {
+            role: "system",
+            content: getSystemPrompt(),
+          },
+          ...messages.slice(-10),
+          userMessage,
+        ],
+        max_tokens: 300,
+        temperature: 0.5,
       });
 
-      const data = await response.json();
-      if (data.message) {
-        setMessages((prev) => [...prev, { role: "assistant", content: data.message }]);
+      const messageContent = response.choices[0]?.message?.content;
+      if (messageContent) {
+        setMessages((prev) => [...prev, { role: "assistant", content: messageContent }]);
       } else {
-        throw new Error(data.error || "Something went wrong");
+        throw new Error("No response from AI");
       }
-    } catch (error) {
+    } catch (error: any) {
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "Sorry, I encountered an error. Please try again later." },
+        { 
+          role: "assistant", 
+          content: error.message || "Sorry, I encountered an error. Please try again later." 
+        },
       ]);
     } finally {
       setIsLoading(false);
