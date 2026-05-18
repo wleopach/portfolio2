@@ -47,7 +47,7 @@ const Hero = () => {
                 {owner.name}
               </span>
             </h1>
-            <p className="text-eerieBlack font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2 font-poppins">
+            <p className="text-taupe-500 font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2 font-poppins">
               Data scientist, <br className="sm:block hidden" />
               Driven by a Passion for Machine Learning, AI, and Mathematics
             </p>

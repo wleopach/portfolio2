@@ -38,12 +38,12 @@ const Contact = () => {
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
       id="contact"
-      className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
+      className="py-20 w-full"
     >
-      <div className="flex xl:flex-row flex-col-reverse gap-10 overflow-hidden justify-center">
+      <div className="px-8 xl:px-24 2xl:px-40 w-full">
         <motion.div
-          variants={slideIn('left', 'tween', 0.2, 1)}
-          className="flex-1 bg-jetLight p-8 rounded-2xl max-w-6xl w-full"
+            variants={slideIn('left', 'tween', 0.2, 1)}
+            className="bg-jetLight p-8 rounded-2xl w-full"
         >
           <p className="sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold">Get in touch</p>
           <h3 className="text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px]">Contact.</h3>

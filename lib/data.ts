@@ -139,35 +139,35 @@ export const experience: Experience[] = [
   {
     title: 'Senior Consultant OR',
     company_name: 'Melius ID',
-    icon: `${basePath}/assets/company/coverhunt.png`, // Placeholder icon
+    icon: `${basePath}/assets/company/melius.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'Aug 2016 - Feb 2019',
   },
   {
     title: 'AI Consultant',
     company_name: 'Laguna AI',
-    icon: `${basePath}/assets/company/microverse.png`, // Placeholder icon
+    icon: `${basePath}/assets/company/laguna.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'May 2021 - Oct 2022',
   },
   {
     title: 'AI Consultant',
     company_name: 'Updata',
-    icon: `${basePath}/assets/company/kelhel.png`, // Placeholder icon
+    icon: `${basePath}/assets/company/updata.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'Mar 2022 - Dec 2022',
   },
   {
     title: 'Data Scientist',
     company_name: 'Tulipan',
-    icon: `${basePath}/assets/company/dcc.png`, // Placeholder icon
+    icon: `${basePath}/assets/company/tulipan.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'April 2023 - Jan 2026',
   },
   {
     title: 'Data Scientist and Scheduling optimization Engineer',
     company_name: 'Applaudo',
-    icon: `${basePath}/assets/company/kelhel.png`, // Placeholder icon
+    icon: `${basePath}/assets/company/applaudo.png`, // Placeholder icon
     iconBg: '#333333',
     date: 'Jan 2026 - Present',
   },

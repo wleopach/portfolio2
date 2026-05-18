@@ -13,6 +13,7 @@ import { textVariant, staggerContainer } from '@/lib/motion';
 
 const ExperienceCard = ({ exp }: { exp: any }) => (
   <VerticalTimelineElement
+      dateClassName="text-gray-800 dark:text-gray-200 font-semibold text-[14px]"
     contentStyle={{
       background: '#eaeaec',
       color: '#292929',
