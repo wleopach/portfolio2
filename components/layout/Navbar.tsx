@@ -47,6 +47,7 @@ const Navbar = () => {
             width={50}
             height={50}
             className="sm:w-[50px] sm:h-[50px] w-[45px] h-[45px] object-contain brightness-0 invert mix-blend-screen"
+            priority
           />
           <Image
             src={`${basePath}/assets/logo/logo-text-black.png`}
@@ -54,6 +55,7 @@ const Navbar = () => {
             width={90}
             height={90}
             className="sm:w-[90px] sm:h-[90px] w-[85px] h-[85px] -ml-[0.6rem] object-contain brightness-0 invert mix-blend-screen"
+            priority
           />
         </Link>
 

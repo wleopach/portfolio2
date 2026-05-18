@@ -31,6 +31,7 @@
   --color-foreground: var(--foreground);
   
   --color-primary-old: #050816;
+  --color-primary: #915eff;
   --color-secondary-old: #aaa6c3;
   --color-tertiary: #151030;
   --color-flashWhite: #f4f4f6;
@@ -89,4 +90,21 @@ body {
   background: linear-gradient(to right, #915eff, #ff4d4d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* globals.css */
+
+/* Mobile: date is inside the card, hide the floating date */
+.vertical-timeline-element-date {
+  display: none;
+}
+
+/* Desktop (1170px is the breakpoint react-vertical-timeline uses) */
+@media (min-width: 1170px) {
+  .vertical-timeline-element-date {
+    display: block;
+    color: #424952 !important; /* gray-800 */
+    font-weight: 600 !important;
+    font-size: 14px !important;
+  }
 }
