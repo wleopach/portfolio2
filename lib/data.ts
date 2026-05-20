@@ -38,12 +38,12 @@ export interface OwnerInfo {
 
 export const owner: OwnerInfo = {
   name: "Leonardo Pacheco",
-  title: "Full Stack Developer",
+  title: "Data Scientist ML",
   bio: "Welcome to my portfolio website! I am a versatile Data Scientist with a strong foundation in Mathematics, backed by expertise in database management, web development, and operations research. Through my journey, I have honed the ability to unravel complex insights from data, transforming them into actionable strategies. My proficiency in handling databases empowers me to organize and extract meaningful information, while my skills in web development allow me to craft interactive and user-centric data-driven applications. With a keen interest in operations research, I am dedicated to optimizing processes and making informed decisions. Explore my projects and experiences to discover how I blend these diverse skills to derive valuable solutions in the realm of data science and beyond.",
   location: "Portugal",
-  email: "leonardo@example.com",
+  email: "wleonardop@gmail.com",
   github: "https://github.com/wleopach",
-  linkedin: "https://linkedin.com/in/wleopach",
+  linkedin: "https://www.linkedin.com/in/leonardo-pacheco-tobo-b0a35339/",
 };
 
 export const isProd = process.env.NODE_ENV === 'production';
