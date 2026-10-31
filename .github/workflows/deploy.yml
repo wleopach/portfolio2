@@ -38,8 +38,8 @@ jobs:
       - name: Build with Next.js
         run: npm run build
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          NEXT_PUBLIC_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Public URL of the Cloudflare Worker in worker/ (not a secret).
+          NEXT_PUBLIC_CHAT_API_URL: https://portfolio-chat.wleopach.workers.dev
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
